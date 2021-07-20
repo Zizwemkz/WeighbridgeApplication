@@ -1,0 +1,26 @@
+﻿<Window x:Class="WeighBridgeApplication.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeighBridgeApplication"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        mc:Ignorable="d"
+        Title="LoginScreen" Height="650" Width="1200" FontSize="14"  Background="#338DFF" >
+    <Border CornerRadius="20" Margin="20" Background="#337DFF">
+        <StackPanel Margin="20">
+            <Label Content="Login" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
+            
+            <!--<Label Content="Username" HorizontalAlignment="Center" Foreground="white"/>-->
+
+            <dxe:TextEdit HorizontalAlignment="Center"  VerticalAlignment="Top" Width="200"  NullText="Username"  Name="txtUsername"/>
+            <!--<Label Content="Password" HorizontalAlignment="Center" Foreground="white"/>-->
+            <dxe:PasswordBoxEdit HorizontalAlignment="Center"  VerticalAlignment="Top" NullText="Password" Width="200" Name="txtPassword"/>
+            <Label></Label>
+            <!--<Label></Label>
+            <Label></Label>-->
+            <Button Name="btnSubmit" Content="Login" Width="200" HorizontalAlignment="Center" Click="btnSubmit_Click"></Button>
+        </StackPanel>
+    </Border>
+
+</Window>

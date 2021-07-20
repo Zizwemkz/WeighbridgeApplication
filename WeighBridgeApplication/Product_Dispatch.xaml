@@ -1,0 +1,31 @@
+﻿<Page xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"  x:Class="WeighBridgeApplication.Product_Dispatch"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WeighBridgeApplication"
+      mc:Ignorable="d" 
+      xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Product_Dispatch">
+
+    <Page.Resources>
+    </Page.Resources>
+
+    <Grid>
+        <dxlc:LayoutControl>
+            <dxlc:LayoutItem>
+                <dxg:LookUpEdit x:Name="Lookupedit"/>
+               
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem>
+                <dxe:ComboBoxEdit x:Name="Combobox" />
+                
+            </dxlc:LayoutItem >
+            
+
+
+        </dxlc:LayoutControl>
+
+    </Grid>
+</Page>

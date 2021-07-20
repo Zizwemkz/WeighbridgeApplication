@@ -1,0 +1,402 @@
+﻿<Page   xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  
+        x:Class="WeighBridgeApplication.Product_Recieves"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"  
+	    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  
+        xmlns:local="clr-namespace:WeighBridgeApplication"
+        xmlns:dxga="http://schemas.devexpress.com/winfx/2008/xaml/gauges"
+        mc:Ignorable="d" 
+      
+        d:DesignHeight="450" d:DesignWidth="800"   
+        Title="Product_Recieves">
+
+
+
+    <Grid>
+
+
+        <lc:LayoutControl View="Group">
+            <lc:LayoutGroup Header="Product Recieves" View="Group" x:Name="OrderTab"  Background="Transparent">
+                <Grid>
+
+                    <lc:LayoutGroup Header="Order Information" View="Tabs"  Orientation="Vertical" >
+                        <lc:LayoutControl Orientation="Vertical" Header="myTab" Panel.ZIndex="1">
+                            <lc:LayoutItem Label="Order No:">
+                                <dxg:LookUpEdit Name="OrderLookup" AutoPopulateColumns="True" SelectedIndexChanged="OrderLookup_SelectedIndexChanged">
+                                    <dxg:LookUpEdit.StyleSettings>
+                                        <dxg:SearchLookUpEditStyleSettings AllowGrouping="False"/>
+                                    </dxg:LookUpEdit.StyleSettings>
+                                </dxg:LookUpEdit>
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="WB Ticket:">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtWbTicket"    />
+                            </lc:LayoutItem>
+                            <lc:DataLayoutItem Label="Sequence">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtSequence"    />
+
+                            </lc:DataLayoutItem>
+                            <lc:LayoutItem Label="Seal No:">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtSealNo"   />
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="Aditional Ref:">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtRef"  />
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="Transporter:">
+                                <dxg:LookUpEdit x:Name="TransComboBox"/>
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="Driver Name:">
+                                <dxe:TextEdit MinWidth="200"  x:Name="newDriver"  />
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="Truck Reg:">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtReg"   />
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="Delivery Note:">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtNote"   />
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="Supplier:">
+                                <dxg:LookUpEdit x:Name="SupplierComboBox"  AutoPopulateColumns="True"  />
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="Arrival Date:">
+                                <dxe:DateEdit x:Name="ArrivalDate">
+                                    <dxe:DateEdit.StyleSettings>
+                                        <dxe:DateEditNavigatorStyleSettings/>
+                                    </dxe:DateEdit.StyleSettings>
+                                </dxe:DateEdit>
+                            </lc:LayoutItem>
+                            <lc:DataLayoutItem Label="Origin WB Ticket">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtOriginWB" />
+                            </lc:DataLayoutItem>
+                            <lc:DataLayoutItem Label="Origin Date">
+                                
+                                <dxe:DateEdit x:Name="txtOriginDate">
+                                    <dxe:DateEdit.StyleSettings>
+                                        <dxe:DateEditNavigatorStyleSettings/>
+                                    </dxe:DateEdit.StyleSettings>
+                                </dxe:DateEdit>
+                            </lc:DataLayoutItem>
+                            <lc:DataLayoutItem Label="Origin Delivery Note">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtOriginNote" />
+                            </lc:DataLayoutItem>
+                            <lc:DataLayoutItem Label="Origin Nett Weight">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtOriginNett" />
+                            </lc:DataLayoutItem>
+                            <lc:DataLayoutItem Label="SplitWBTicket">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtSplitWBTicket" />
+                            </lc:DataLayoutItem>
+                            <lc:DataLayoutItem Label="Slit Ticket">
+                                <dxe:CheckEdit x:Name="SplitCheck" ></dxe:CheckEdit>
+
+                            </lc:DataLayoutItem>
+                           
+                          
+                          
+                            <lc:LayoutItem Label="General Comment">
+                                <dxe:MemoEdit x:Name="txtComments">
+
+                                </dxe:MemoEdit>
+                            </lc:LayoutItem>
+                            <lc:LayoutControl>
+                                <dx:SimpleButton Content="Save"  x:Name="commitButton"  Height="50"  Click="commitButton_Click"/>
+                                
+                            </lc:LayoutControl>
+                        </lc:LayoutControl>
+                        <lc:LayoutControl  Orientation="Vertical">
+                            <Image Source="https://img.autotrader.co.za/7990260/Crop508x373" />
+                        </lc:LayoutControl>
+
+
+                    </lc:LayoutGroup>
+
+                </Grid>
+
+
+                <Grid>
+                    <lc:LayoutGroup Header="Scale Information"  View="Tabs" Orientation="Vertical">
+
+                        <lc:LayoutControl Orientation="Vertical" SelectedTabIndex="2">
+
+                            <lc:LayoutItem Label="Truck Type:">
+                                <dxe:ComboBoxEdit x:Name="ImgCombobox" >
+                                    <dxe:ComboBoxEdit.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="{Binding Image}"  Width="90" Height="75" />
+                                                <TextBlock Text="{Binding Name}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </dxe:ComboBoxEdit.ItemTemplate>
+                                </dxe:ComboBoxEdit>
+                                <!--<dxg:LookUpEdit x:Name="ImgCombobox">
+                                    <dxg:LookUpEdit.ItemTemplate>
+                                        <DataTemplate>
+
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Width="600" Height="600" >
+                                                    <Image.Source>
+                                                        <BitmapImage CreateOptions="IgnoreColorProfile" UriSource="http://hanselman.com/blog/images/JPGwithBadColorProfile.jpg"/>
+                                                    </Image.Source>
+                                                </Image>
+                                                <TextBlock Text="{Binding Name}"/>
+                                            </StackPanel>
+
+                                        </DataTemplate>
+                                    </dxg:LookUpEdit.ItemTemplate>
+                                </dxg:LookUpEdit>-->
+                            </lc:LayoutItem>
+
+                            <lc:LayoutItem Label="Tar Weight:">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtTar"   />
+                            </lc:LayoutItem>
+
+                            <lc:LayoutItem Label="">
+                                <Button x:Name="GetEmpty"  Content="Get Empty" Width="70" HorizontalAlignment="Right"  Click="GetEmpty_Click"/>
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="Gross Wieght:">
+                                <dxe:TextEdit MinWidth="200"  x:Name="txtGross"  />
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="">
+                                <Button x:Name="GetFull"    Content="Get Full" Width="70" HorizontalAlignment="Right"  Click="GetFull_Click" />
+                            </lc:LayoutItem>
+                            <lc:LayoutItem Label="Nett Weight:">
+                                <dxe:TextEdit MinWidth="200"   x:Name="txtNett" />
+                            </lc:LayoutItem>
+
+                        </lc:LayoutControl>
+
+                        <lc:LayoutControl  Orientation="Vertical" SelectedTabIndex="0" >
+                            <lc:LayoutControl>
+                               
+
+                                        <dxga:LinearGaugeControl Name="linearGaugeControl1"  Height="200" Width="100">
+                                            <dxga:LinearGaugeControl.Scales>
+                                                <dxga:LinearScale MajorIntervalCount="{DXBinding '(@s.EndValue-@s.StartValue)/20'}" >
+                                                    <dxga:LinearScale.LevelBars >
+                                                        <dxga:LinearScaleLevelBar x:Name="bar"   Value="{Binding Exel1Weight}" />
+                                                    </dxga:LinearScale.LevelBars >
+                                                    <dxga:LinearScale.Layers>
+                                                        <dxga:LinearScaleLayer />
+                                                    </dxga:LinearScale.Layers>
+                                                    <dxga:LinearScale.Ranges>
+                                                        <dxga:LinearScaleRange StartValue="60" EndValue="{Binding ScaleWeight}">
+                                                            <dxga:LinearScaleRange.Presentation>
+                                                                <dxga:DefaultLinearScaleRangePresentation Fill="Tomato" />
+                                                            </dxga:LinearScaleRange.Presentation>
+                                                        </dxga:LinearScaleRange>
+                                                    </dxga:LinearScale.Ranges>
+                                                </dxga:LinearScale>
+                                            </dxga:LinearGaugeControl.Scales>
+                                            <dxga:LinearGaugeControl.Model>
+                                                <dxga:LinearCleanWhiteModel />
+                                            </dxga:LinearGaugeControl.Model>
+
+                                        </dxga:LinearGaugeControl>
+
+                                        <dxga:LinearGaugeControl Name="linearGaugeControl2"  Width="100" Height="200">
+                                            <dxga:LinearGaugeControl.Scales>
+                                                <dxga:LinearScale MajorIntervalCount="{DXBinding '(@s.EndValue-@s.StartValue)/20'}">
+                                                    <dxga:LinearScale.LevelBars >
+                                                        <dxga:LinearScaleLevelBar x:Name="bar2"  Value="{Binding Exel2Weight}" />
+                                                    </dxga:LinearScale.LevelBars >
+                                                    <dxga:LinearScale.Layers>
+                                                        <dxga:LinearScaleLayer />
+                                                    </dxga:LinearScale.Layers>
+                                                    
+                                                    <dxga:LinearScale.Ranges>
+                                                        <dxga:LinearScaleRange StartValue="60" EndValue="{Binding ScaleWeight}">
+                                                        <dxga:LinearScaleRange.Presentation>
+                                                            <dxga:DefaultLinearScaleRangePresentation Fill="Tomato" />
+                                                        </dxga:LinearScaleRange.Presentation>
+                                                    </dxga:LinearScaleRange>
+                                                    </dxga:LinearScale.Ranges>
+                                                </dxga:LinearScale>
+                                            </dxga:LinearGaugeControl.Scales>
+                                            <dxga:LinearGaugeControl.Model>
+                                                <dxga:LinearCleanWhiteModel />
+                                            </dxga:LinearGaugeControl.Model>
+                                        </dxga:LinearGaugeControl>
+
+                                        <dxga:LinearGaugeControl Name="linearGaugeControl3" Width="100"  Height="200">
+                                            <dxga:LinearGaugeControl.Scales>
+                                                <dxga:LinearScale MajorIntervalCount="{DXBinding '(@s.EndValue-@s.StartValue)/20'}">
+                                                    <dxga:LinearScale.LevelBars >
+                                                        <dxga:LinearScaleLevelBar x:Name="bar3"  Value="{Binding Exel3Weight}" />
+                                                    </dxga:LinearScale.LevelBars >
+                                                    <dxga:LinearScale.Layers>
+                                                        <dxga:LinearScaleLayer />
+                                                    </dxga:LinearScale.Layers>
+                                                    <dxga:LinearScale.Ranges>
+                                                        <dxga:LinearScaleRange StartValue="60" EndValue="{Binding ScaleWeight}">
+                                                            <dxga:LinearScaleRange.Presentation>
+                                                                <dxga:DefaultLinearScaleRangePresentation Fill="Tomato" />
+                                                            </dxga:LinearScaleRange.Presentation>
+                                                        </dxga:LinearScaleRange>
+                                                    </dxga:LinearScale.Ranges>
+                                                </dxga:LinearScale>
+                                            </dxga:LinearGaugeControl.Scales>
+                                            <dxga:LinearGaugeControl.Model>
+                                                <dxga:LinearCleanWhiteModel />
+                                            </dxga:LinearGaugeControl.Model>
+                                        </dxga:LinearGaugeControl>
+
+
+
+                                        <dxga:LinearGaugeControl Name="linearGaugeControl4" Width="100" Height="200">
+                                            <dxga:LinearGaugeControl.Scales>
+                                                <dxga:LinearScale MajorIntervalCount="{DXBinding '(@s.EndValue-@s.StartValue)/20'}">
+                                                    <dxga:LinearScale.LevelBars >
+                                                        <dxga:LinearScaleLevelBar x:Name="bar4"   Value="{Binding Exel4Weight}" />
+                                                    </dxga:LinearScale.LevelBars >
+                                                    <dxga:LinearScale.Layers>
+                                                        <dxga:LinearScaleLayer />
+                                                    </dxga:LinearScale.Layers>
+                                                    <dxga:LinearScale.Ranges>
+                                                        <dxga:LinearScaleRange StartValue="60" EndValue="{Binding ScaleWeight}">
+                                                            <dxga:LinearScaleRange.Presentation>
+                                                                <dxga:DefaultLinearScaleRangePresentation Fill="Tomato" />
+                                                            </dxga:LinearScaleRange.Presentation>
+                                                        </dxga:LinearScaleRange>
+                                                    </dxga:LinearScale.Ranges>
+                                                </dxga:LinearScale>
+                                            </dxga:LinearGaugeControl.Scales>
+                                            <dxga:LinearGaugeControl.Model>
+                                                <dxga:LinearCleanWhiteModel />
+                                            </dxga:LinearGaugeControl.Model>
+                                        </dxga:LinearGaugeControl>
+                                   
+                                    
+
+                                    <!--<StackPanel Orientation="Horizontal">
+
+
+                                        <dxga:LinearGaugeControl Name="linearGaugeControl5"  Height="200" Width="100">
+                                            <dxga:LinearGaugeControl.Scales>
+                                                <dxga:LinearScale MajorIntervalCount="{DXBinding '(@s.EndValue-@s.StartValue)/20'}">
+                                                    <dxga:LinearScale.LevelBars >
+                                                        <dxga:LinearScaleLevelBar x:Name="bar5"   Value="{Binding ScaleWeight}" />
+                                                    </dxga:LinearScale.LevelBars >
+                                                    <dxga:LinearScale.Layers>
+                                                        <dxga:LinearScaleLayer />
+                                                    </dxga:LinearScale.Layers>
+                                                </dxga:LinearScale>
+                                            </dxga:LinearGaugeControl.Scales>
+                                            <dxga:LinearGaugeControl.Model>
+                                                <dxga:LinearCleanWhiteModel />
+                                            </dxga:LinearGaugeControl.Model>
+                                        </dxga:LinearGaugeControl>
+
+                                        <dxga:LinearGaugeControl Name="linearGaugeControl6"  Width="100" Height="200">
+                                            <dxga:LinearGaugeControl.Scales>
+                                                <dxga:LinearScale MajorIntervalCount="{DXBinding '(@s.EndValue-@s.StartValue)/20'}">
+                                                    <dxga:LinearScale.LevelBars >
+                                                        <dxga:LinearScaleLevelBar x:Name="bar6"  Value="{Binding ScaleWeight}" />
+                                                    </dxga:LinearScale.LevelBars >
+                                                    <dxga:LinearScale.Layers>
+                                                        <dxga:LinearScaleLayer />
+                                                    </dxga:LinearScale.Layers>
+                                                </dxga:LinearScale>
+                                            </dxga:LinearGaugeControl.Scales>
+                                            <dxga:LinearGaugeControl.Model>
+                                                <dxga:LinearCleanWhiteModel />
+                                            </dxga:LinearGaugeControl.Model>
+                                        </dxga:LinearGaugeControl>
+
+                                        <dxga:LinearGaugeControl Name="linearGaugeControl7" Width="100"  Height="200">
+                                            <dxga:LinearGaugeControl.Scales>
+                                                <dxga:LinearScale MajorIntervalCount="{DXBinding '(@s.EndValue-@s.StartValue)/20'}">
+                                                    <dxga:LinearScale.LevelBars >
+                                                        <dxga:LinearScaleLevelBar x:Name="bar7"  Value="{Binding ScaleWeight}" />
+                                                    </dxga:LinearScale.LevelBars >
+                                                    <dxga:LinearScale.Layers>
+                                                        <dxga:LinearScaleLayer />
+                                                    </dxga:LinearScale.Layers>
+                                                </dxga:LinearScale>
+                                            </dxga:LinearGaugeControl.Scales>
+                                            <dxga:LinearGaugeControl.Model>
+                                                <dxga:LinearCleanWhiteModel />
+                                            </dxga:LinearGaugeControl.Model>
+                                        </dxga:LinearGaugeControl>
+
+
+
+                                        <dxga:LinearGaugeControl Name="linearGaugeControl8" Width="100" Height="200">
+                                            <dxga:LinearGaugeControl.Scales>
+                                                <dxga:LinearScale MajorIntervalCount="{DXBinding '(@s.EndValue-@s.StartValue)/20'}">
+                                                    <dxga:LinearScale.LevelBars >
+                                                        <dxga:LinearScaleLevelBar x:Name="bar8"   Value="{Binding ScaleWeight}" />
+                                                    </dxga:LinearScale.LevelBars >
+                                                    <dxga:LinearScale.Layers>
+                                                        <dxga:LinearScaleLayer />
+                                                    </dxga:LinearScale.Layers>
+                                                </dxga:LinearScale>
+                                            </dxga:LinearGaugeControl.Scales>
+                                            <dxga:LinearGaugeControl.Model>
+                                                <dxga:LinearCleanWhiteModel />
+                                            </dxga:LinearGaugeControl.Model>
+                                        </dxga:LinearGaugeControl>
+                                    </StackPanel>-->
+                                
+
+
+
+
+                            </lc:LayoutControl>
+
+
+                        </lc:LayoutControl>
+                        <lc:LayoutControl  Header="TestTab" SelectedTabIndex="1">
+
+
+                            <dxga:CircularGaugeControl EnableAnimation="True"    Margin="10 0">
+                                <dxga:CircularGaugeControl.Scales>
+                                    <dxga:ArcScale StartValue="0" EndValue="100 " ShowMinorTickmarks="False"  ShowMajorTickmarks="True" MajorIntervalCount="{DXBinding (@s.EndValue-@s.StartValue)/20}">
+                                        <dxga:ArcScale.Layers>
+                                            <dxga:ArcScaleLayer />
+                                        </dxga:ArcScale.Layers>
+                                        <dxga:ArcScale.Needles>
+                                            <dxga:ArcScaleNeedle Value="{Binding Exel1Weight}" />
+                                        </dxga:ArcScale.Needles>
+                                        <dxga:ArcScale.Ranges>
+                                            <dxga:ArcScaleRange StartValue="0%" EndValue="33%" />
+                                            <dxga:ArcScaleRange StartValue="33%" EndValue="67%" />
+                                            <dxga:ArcScaleRange StartValue="67%" EndValue="100%" />
+                                        </dxga:ArcScale.Ranges>
+                                    </dxga:ArcScale>
+                                </dxga:CircularGaugeControl.Scales>
+                            </dxga:CircularGaugeControl>
+
+                            <dxga:CircularGaugeControl EnableAnimation="True"  Margin="10 0">
+                                <dxga:CircularGaugeControl.Scales>
+                                    <dxga:ArcScale StartValue="0" EndValue="100" ShowMinorTickmarks="False" ShowMajorTickmarks="True" MajorIntervalCount="{DXBinding (@s.EndValue-@s.StartValue)/20}">
+                                        <dxga:ArcScale.Layers>
+                                            <dxga:ArcScaleLayer />
+                                        </dxga:ArcScale.Layers>
+                                        <dxga:ArcScale.Needles>
+                                            <dxga:ArcScaleNeedle Value="{Binding ScaleWeight}" />
+                                        </dxga:ArcScale.Needles>
+                                        <dxga:ArcScale.Ranges>
+                                            <dxga:ArcScaleRange StartValue="0%" EndValue="33%" />
+                                            <dxga:ArcScaleRange StartValue="33%" EndValue="67%" />
+                                            <dxga:ArcScaleRange StartValue="67%" EndValue="100%" />
+                                        </dxga:ArcScale.Ranges>
+                                    </dxga:ArcScale>
+                                </dxga:CircularGaugeControl.Scales>
+                            </dxga:CircularGaugeControl>
+                        </lc:LayoutControl>
+
+
+                    </lc:LayoutGroup>
+
+                </Grid>
+
+            </lc:LayoutGroup>
+
+        </lc:LayoutControl>
+
+
+    </Grid>
+</Page>
